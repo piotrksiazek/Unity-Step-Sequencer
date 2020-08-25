@@ -14,7 +14,6 @@ public class Bpm : MonoBehaviour
     [SerializeField] private List<AudioSource> stepsAudioSource;
     [SerializeField] public List<kwadrat> steps;
     [SerializeField] public CircularIndex circular;
-    private List<kwadrat> stepsOrdered;
 
     private void Awake()
     {

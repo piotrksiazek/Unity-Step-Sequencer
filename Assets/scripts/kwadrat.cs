@@ -28,23 +28,11 @@ public class kwadrat : MonoBehaviour
     {
         if(circular.currentIndex == stepIndex)
         {
-            //sprite.color = black;
             bulb.GetComponent<SpriteRenderer>().color = white;
         }
         else
         {
-            //sprite.color = white;
             bulb.GetComponent<SpriteRenderer>().color = transparent;
         }
-    }
-
-    public override string ToString() // For debugging
-    {
-        return this.stepIndex.ToString();
-    }
-
-    public void RedOnClick()
-    {
-        redButton.color = white;
     }
 }
