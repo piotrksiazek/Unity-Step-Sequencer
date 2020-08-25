@@ -8,12 +8,10 @@ public class RedButton : MonoBehaviour
     Color white = new Color(1, 1, 1, 1);
     Color transparent = new Color(0, 0, 0, 0);
     AudioSource audioSource;
-    AudioClip clipCopy;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponentInParent<AudioSource>();
-        clipCopy = audioSource.clip;
     }
     void Update()
     {
@@ -32,12 +30,12 @@ public class RedButton : MonoBehaviour
                     if (spriteRenderer.color == transparent) // Turn On
                     {
                         spriteRenderer.color = white;
-                        audioSource.clip = clipCopy;
+                        audioSource.volume = 1;
                     }
                     else if (spriteRenderer.color == white) // Turn Off
                     {
                         spriteRenderer.color = transparent;
-                        audioSource.clip = null;
+                        audioSource.volume = 0;
                     }
                 }
             }

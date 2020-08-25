@@ -13,7 +13,18 @@ public class kwadrat : MonoBehaviour
     private Color black;
     private Color transparent;
     private GameObject bulb;
-    private void Start()
+
+    [SerializeField] public AudioClip closedHat;
+    [SerializeField] public AudioClip openHat;
+    [SerializeField] public AudioClip clap;
+    [SerializeField] public AudioClip crash;
+    [SerializeField] public AudioClip kick;
+    [SerializeField] public AudioClip ride;
+    [SerializeField] public AudioClip rim;
+    [SerializeField] public AudioClip snare;
+    public AudioSource[] audioSources;
+
+    private void Awake()   
     {
         white = new Color(1, 1, 1, 1);
         black = new Color(0, 0, 0, 1);
