@@ -36,7 +36,7 @@ public class kwadrat : MonoBehaviour
     public AudioSource rideSource;
     public AudioSource rimSource;
     public AudioSource snareSource;
-    public AudioSource[] allAudioSources;
+    [SerializeField] List<kwadrat> otherSteps;
 
     public AudioSource currentAudioSource;
 
@@ -62,10 +62,13 @@ public class kwadrat : MonoBehaviour
         rimSource = AddAudio(0f, rim);
         snareSource = AddAudio(0f, snare);
 
-        allAudioSources = GetComponents<AudioSource>();
-
         currentAudioSource = null; //delete later
         currentInstrument = closedHatSource;
+        foreach(var step in FindObjectsOfType<kwadrat>())
+        {
+            otherSteps.Add(step);
+        }
+
     }
     void Update()
     {
@@ -74,8 +77,7 @@ public class kwadrat : MonoBehaviour
         turnOffGoldIfNotSwitching();
         LightTheRedIfCurrentInstrument();
         PlaySounds();
-        if (circular.currentIndex != stepIndex)
-            isArmed = true;
+        ArmWhenDisabled();
     }
 
     private void LightTheBulbIfStep()
@@ -95,9 +97,22 @@ public class kwadrat : MonoBehaviour
         if(circular.currentIndex == stepIndex && isArmed)
         {
             closedHatSource.PlayOneShot(closedHat);
+            openHatSource.PlayOneShot(openHat);
+            clapSource.PlayOneShot(clap);
+            crashSource.PlayOneShot(crash);
+            kickSource.PlayOneShot(kick);
+            rideSource.PlayOneShot(ride);
+            rimSource.PlayOneShot(rim);
+            snareSource.PlayOneShot(snare);
         }
 
         isArmed = false;
+    }
+
+    private void ArmWhenDisabled()
+    {
+        if (circular.currentIndex != stepIndex)
+            isArmed = true;
     }
 
     private void LightTheRedIfCurrentInstrument()
@@ -132,13 +147,23 @@ public class kwadrat : MonoBehaviour
                 {
                     if(isSwitchingInstrument == true)
                     {
-                        if (instrument == "Kick")
-                            currentInstrument = kickSource;
-                        else if (instrument == "Snare")
-                            currentInstrument = snareSource;
+                        if (instrument == "Closed Hat")
+                            otherSteps.ForEach(x => x.currentInstrument = x.closedHatSource);
+                        else if (instrument == "Open Hat")
+                            otherSteps.ForEach(x => x.currentInstrument = x.openHatSource);
+                        else if (instrument == "Clap")
+                            otherSteps.ForEach(x => x.currentInstrument = x.clapSource);
+                        else if (instrument == "Crash")
+                            otherSteps.ForEach(x => x.currentInstrument = x.crashSource);
+                        else if (instrument == "Kick")
+                            otherSteps.ForEach(x => x.currentInstrument = x.kickSource);
+                        else if (instrument == "Ride")
+                            otherSteps.ForEach(x => x.currentInstrument = x.rideSource);
                         else if (instrument == "Rim")
-                            currentInstrument = rimSource;
-                        // TODO Dokończ wpisywać pozostałe instrumenty
+                            otherSteps.ForEach(x => x.currentInstrument = x.rimSource);
+                        else if (instrument == "Snare")
+                            otherSteps.ForEach(x => x.currentInstrument = x.snareSource);
+                        
                         kwadrat.isSwitchingInstrument = false;
                     }
 
@@ -157,6 +182,10 @@ public class kwadrat : MonoBehaviour
         }
     }
 
+    private void UpdateOtherCurrentInstruments()
+    {
+
+    }
     private void turnOffGoldIfNotSwitching()
     {
         if(!isSwitchingInstrument)

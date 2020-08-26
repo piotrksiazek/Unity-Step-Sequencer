@@ -794,6 +794,11 @@ PrefabInstance:
       propertyPath: stepIndex
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6375000229577049680, guid: 97bd129469baccc488d12f5c0ce989c5,
+        type: 3}
+      propertyPath: instrument
+      value: Clap
+      objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049681, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Enabled
@@ -808,7 +813,7 @@ PrefabInstance:
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Name
-      value: Stopa (6)
+      value: Clap 6
       objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
@@ -1351,6 +1356,11 @@ PrefabInstance:
       propertyPath: stepIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6375000229577049680, guid: 97bd129469baccc488d12f5c0ce989c5,
+        type: 3}
+      propertyPath: instrument
+      value: Ride
+      objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049681, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Enabled
@@ -1365,7 +1375,7 @@ PrefabInstance:
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Name
-      value: Stopa (3)
+      value: Ride 3
       objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
@@ -2309,6 +2319,11 @@ PrefabInstance:
       propertyPath: stepIndex
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6375000229577049680, guid: 97bd129469baccc488d12f5c0ce989c5,
+        type: 3}
+      propertyPath: instrument
+      value: Crash
+      objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049681, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Enabled
@@ -2323,7 +2338,7 @@ PrefabInstance:
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Name
-      value: Stopa (7)
+      value: Crash 7
       objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
@@ -3015,6 +3030,11 @@ PrefabInstance:
       propertyPath: stepIndex
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6375000229577049680, guid: 97bd129469baccc488d12f5c0ce989c5,
+        type: 3}
+      propertyPath: instrument
+      value: Closed Hat
+      objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049681, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Enabled
@@ -3029,7 +3049,7 @@ PrefabInstance:
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Name
-      value: Stopa (4)
+      value: ClosedHat 4
       objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
@@ -3198,6 +3218,11 @@ PrefabInstance:
       propertyPath: stepIndex
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6375000229577049680, guid: 97bd129469baccc488d12f5c0ce989c5,
+        type: 3}
+      propertyPath: instrument
+      value: Open Hat
+      objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049681, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Enabled
@@ -3212,7 +3237,7 @@ PrefabInstance:
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
       propertyPath: m_Name
-      value: Stopa (5)
+      value: OpenHat 5
       objectReference: {fileID: 0}
     - target: {fileID: 6375000229577049683, guid: 97bd129469baccc488d12f5c0ce989c5,
         type: 3}
