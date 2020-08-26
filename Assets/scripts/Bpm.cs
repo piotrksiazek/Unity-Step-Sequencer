@@ -19,12 +19,12 @@ public class Bpm : MonoBehaviour
     {
         beatInterval = 60 / bpm; // interval in seconds
         var steps = FindObjectsOfType<kwadrat>();
-        steps = steps.OrderBy(x => x.stepIndex).ToArray();
+        //steps = steps.OrderBy(x => x.stepIndex).ToArray();
         circular.maxIndex = steps.Length - 1;
-        foreach(kwadrat step in steps)
-        {
-            stepsAudioSource.Add(step.GetComponent<AudioSource>());
-        }
+        //foreach(kwadrat step in steps)
+        //{
+        //    stepsAudioSource.Add(step.GetComponent<AudioSource>());
+        //}
     }
     void Update()
     {
@@ -35,7 +35,7 @@ public class Bpm : MonoBehaviour
     {
         if (timePassed >= beatInterval)
         {
-            stepsAudioSource[circular.nextIndex()].Play();
+            circular.nextIndex();
             timePassed = 0f;
         }
 

@@ -6,8 +6,9 @@ using UnityEngine.Rendering;
 public class kwadrat : MonoBehaviour
 {
     public string instrument;
-    public AudioSource currentInstrument;
-    public static bool isSwitchingInstrument;
+    [SerializeField] private AudioSource currentInstrument;
+    [SerializeField] public static bool isSwitchingInstrument;
+    [SerializeField] private bool isArmed;
     [SerializeField] CircularIndex circular;
     private int currentIndex;
     [SerializeField] public int stepIndex;
@@ -35,19 +36,21 @@ public class kwadrat : MonoBehaviour
     public AudioSource rideSource;
     public AudioSource rimSource;
     public AudioSource snareSource;
+    public AudioSource[] allAudioSources;
 
     public AudioSource currentAudioSource;
 
     private void Awake()   
     {
         isSwitchingInstrument = false;
+        isArmed = true;
         currentIndex = circular.currentIndex;
         white = new Color(1, 1, 1, 1);
         transparent = new Color(0, 0, 0, 0);
         circular = FindObjectOfType<CircularIndex>();
         bulb = transform.GetChild(0).gameObject;
 
-        redButton = transform.GetChild(2).GetComponent<SpriteRenderer>();
+        redButton = transform.GetChild(3).GetComponent<SpriteRenderer>();
         redButton.color = transparent;
 
         closedHatSource = AddAudio(0f, closedHat);
@@ -59,13 +62,20 @@ public class kwadrat : MonoBehaviour
         rimSource = AddAudio(0f, rim);
         snareSource = AddAudio(0f, snare);
 
-        currentAudioSource = null;
+        allAudioSources = GetComponents<AudioSource>();
+
+        currentAudioSource = null; //delete later
+        currentInstrument = closedHatSource;
     }
     void Update()
     {
         LightTheBulbIfStep();
         ShiftInstrument();
         turnOffGoldIfNotSwitching();
+        LightTheRedIfCurrentInstrument();
+        PlaySounds();
+        if (circular.currentIndex != stepIndex)
+            isArmed = true;
     }
 
     private void LightTheBulbIfStep()
@@ -78,6 +88,16 @@ public class kwadrat : MonoBehaviour
         {
             bulb.GetComponent<SpriteRenderer>().color = transparent;
         }
+    }
+
+    private void PlaySounds()
+    {
+        if(circular.currentIndex == stepIndex && isArmed)
+        {
+            closedHatSource.PlayOneShot(closedHat);
+        }
+
+        isArmed = false;
     }
 
     private void LightTheRedIfCurrentInstrument()
@@ -97,6 +117,7 @@ public class kwadrat : MonoBehaviour
         AudioSource newAudio = gameObject.AddComponent<AudioSource>();
         newAudio.clip = clip; 
         newAudio.volume = vol;
+        newAudio.playOnAwake = false;
         return newAudio;
     }
 
@@ -118,8 +139,17 @@ public class kwadrat : MonoBehaviour
                         else if (instrument == "Rim")
                             currentInstrument = rimSource;
                         // TODO Dokończ wpisywać pozostałe instrumenty
-                        isSwitchingInstrument = false;
+                        kwadrat.isSwitchingInstrument = false;
                     }
+
+                    else
+                    {
+                        if (currentInstrument.volume == 0)
+                            currentInstrument.volume = 1;
+                        else if (currentInstrument.volume > 0)
+                            currentInstrument.volume = 0;
+                    }
+
                 }
             }
 

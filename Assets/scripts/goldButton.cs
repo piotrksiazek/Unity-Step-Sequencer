@@ -11,9 +11,9 @@ public class goldButton : MonoBehaviour
     }
     public void shiftRedToGold()
     {
-        for (int i = 0; i <= goldButtons.Length-1; i++)
+        foreach(var goldButton in goldButtons)
         {
-            goldButtons[i].GetComponent<SpriteRenderer>().color = Color.white;
+            goldButton.GetComponent<SpriteRenderer>().color = Color.white;
         }
         kwadrat.isSwitchingInstrument = true;
 
