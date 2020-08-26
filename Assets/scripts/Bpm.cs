@@ -17,14 +17,8 @@ public class Bpm : MonoBehaviour
 
     private void Awake()
     {
+        timePassed = 0f;
         beatInterval = 60 / bpm; // interval in seconds
-        var steps = FindObjectsOfType<kwadrat>();
-        //steps = steps.OrderBy(x => x.stepIndex).ToArray();
-        circular.maxIndex = steps.Length - 1;
-        //foreach(kwadrat step in steps)
-        //{
-        //    stepsAudioSource.Add(step.GetComponent<AudioSource>());
-        //}
     }
     void Update()
     {
