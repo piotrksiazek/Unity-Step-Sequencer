@@ -7,7 +7,7 @@ public class kwadrat : MonoBehaviour
 {
     public string instrument;
     public AudioSource currentInstrument;
-    public bool isSwitchingInstrument;
+    public static bool isSwitchingInstrument;
     [SerializeField] CircularIndex circular;
     private int currentIndex;
     [SerializeField] public int stepIndex;
@@ -65,6 +65,7 @@ public class kwadrat : MonoBehaviour
     {
         LightTheBulbIfStep();
         ShiftInstrument();
+        turnOffGoldIfNotSwitching();
     }
 
     private void LightTheBulbIfStep()
@@ -99,7 +100,7 @@ public class kwadrat : MonoBehaviour
         return newAudio;
     }
 
-    public void ShiftInstrument()
+    private void ShiftInstrument()
     {
         if (Input.touchCount > 0)
         {
@@ -118,7 +119,6 @@ public class kwadrat : MonoBehaviour
                             currentInstrument = rimSource;
                         // TODO Dokończ wpisywać pozostałe instrumenty
                         isSwitchingInstrument = false;
-                        transform.GetChild(2).GetComponent<SpriteRenderer>().color = transparent;
                     }
                 }
             }
@@ -126,5 +126,15 @@ public class kwadrat : MonoBehaviour
 
         }
     }
+
+    private void turnOffGoldIfNotSwitching()
+    {
+        if(!isSwitchingInstrument)
+        {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = transparent;
+        }
+    }
+
+
 }
 
