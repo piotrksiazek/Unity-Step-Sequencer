@@ -9,7 +9,7 @@ using UnityEngine.Assertions.Must;
 public class Bpm : MonoBehaviour
 {
     [SerializeField] public float bpm;
-    [SerializeField] private float beatInterval;
+    [SerializeField] public float beatInterval;
     [SerializeField] private float timePassed;
     [SerializeField] private List<AudioSource> stepsAudioSource;
     [SerializeField] public List<kwadrat> steps;
