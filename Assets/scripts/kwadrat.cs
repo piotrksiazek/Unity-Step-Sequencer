@@ -7,7 +7,7 @@ public class kwadrat : MonoBehaviour
 {
     public string instrument;
     [SerializeField] private AudioSource currentInstrument;
-    [SerializeField] public static bool isSwitchingInstrument;
+    public static bool isSwitchingInstrument;
     [SerializeField] private bool isArmed;
     [SerializeField] CircularIndex circular;
     private int currentIndex;
@@ -19,14 +19,14 @@ public class kwadrat : MonoBehaviour
     private GameObject bulb;
 
 
-    [SerializeField] public AudioClip closedHat;
-    [SerializeField] public AudioClip openHat;
-    [SerializeField] public AudioClip clap;
-    [SerializeField] public AudioClip crash;
-    [SerializeField] public AudioClip kick;
-    [SerializeField] public AudioClip ride;
-    [SerializeField] public AudioClip rim;
-    [SerializeField] public AudioClip snare;
+    public AudioClip closedHat;
+    public AudioClip openHat;
+    public AudioClip clap;
+    public AudioClip crash;
+    public AudioClip kick;
+    public AudioClip ride;
+    public AudioClip rim;
+    public AudioClip snare;
 
     public AudioSource closedHatSource;
     public AudioSource openHatSource;
@@ -182,10 +182,6 @@ public class kwadrat : MonoBehaviour
         }
     }
 
-    private void UpdateOtherCurrentInstruments()
-    {
-
-    }
     private void turnOffGoldIfNotSwitching()
     {
         if(!isSwitchingInstrument)
